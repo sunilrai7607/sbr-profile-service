@@ -1,0 +1,31 @@
+sbr:
+  service:
+    kafka-config:
+      bootstrap-servers: localhost:9092
+      auto-offset-reset: earliest
+      topic: profile_events
+      group-id: events-group
+    mongodb: # MongoDB configuration
+      config:
+        primary:
+          host: localhost
+          port: 27017
+          database: primary-profiles-collections
+          authentication-database: admin
+          username: root
+          password: example
+          repositories:
+            enable: true
+        secondary:
+          host: localhost
+          port: 27017
+          database: secondary-profiles-collections
+          authentication-database: admin
+          username: root
+          password: example
+          repositories:
+            enable: true
+    rediscache: # Redis Configuration
+      config:
+        hostName: redis-server
+        port: 6379
