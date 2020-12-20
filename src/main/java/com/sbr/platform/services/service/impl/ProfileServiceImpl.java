@@ -1,12 +1,11 @@
 package com.sbr.platform.services.service.impl;
 
-import com.sbr.platform.services.commands.CreateProfileCommand;
 import com.sbr.platform.services.commands.DeleteProfileCommand;
 import com.sbr.platform.services.commands.ProfileAggregate;
 import com.sbr.platform.services.mappers.ProfileCreateRequestMapper;
 import com.sbr.platform.services.mappers.ProfileUpdateRequestMapper;
+import com.sbr.platform.services.model.entity.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
-import com.sbr.platform.services.model.enums.ProfileType;
 import com.sbr.platform.services.model.request.ProfileRequest;
 import com.sbr.platform.services.queries.ProfileProjection;
 import com.sbr.platform.services.queries.UserByUserIdQuery;
@@ -33,15 +32,13 @@ public class ProfileServiceImpl implements ProfileService {
      * @return
      */
     @Override
-    public List<Profile> findProfileById(final String userId) {
+    public List<BaseProfile> findProfileById(final String userId) {
         return Arrays.asList(profileProjection.handle(new UserByUserIdQuery(userId)));
     }
 
     @Override
     public String createProfile(ProfileRequest profileRequest) {
-        CreateProfileCommand createProfileCommand = profileCreateRequestMapper.convertUser(profileRequest);
-        createProfileCommand.setProfileType(ProfileType.USER);
-        return profileAggregate.handleCreateProfile(createProfileCommand);
+        return profileAggregate.handleCreateProfile(profileCreateRequestMapper.convertUser(profileRequest));
     }
 
     @Override

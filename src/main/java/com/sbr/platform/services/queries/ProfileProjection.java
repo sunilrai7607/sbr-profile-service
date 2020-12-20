@@ -1,5 +1,7 @@
 package com.sbr.platform.services.queries;
 
+import com.sbr.platform.services.mappers.ProfileDtoMapper;
+import com.sbr.platform.services.model.entity.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.repository.primary.ProfilePrimaryRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,9 +16,26 @@ import java.util.List;
 public class ProfileProjection {
 
     private final ProfilePrimaryRepository profilePrimaryRepository;
+    private final ProfileDtoMapper profileDtoMapper;
 
-    public Profile handle(UserByUserIdQuery userByUserIdQuery) {
-        return profilePrimaryRepository.findByUserId(userByUserIdQuery.getUserId()).orElseThrow(() -> new RuntimeException("Resource not found"));
+    public BaseProfile handle(UserByUserIdQuery userByUserIdQuery) {
+        Profile profile = profilePrimaryRepository.findByUserId(userByUserIdQuery.getUserId()).orElseThrow(() -> new RuntimeException("Resource not found"));
+        log.info("Queries Profile: {} ", profile);
+        BaseProfile baseProfile;
+        switch (profile.getProfileType()) {
+            case USER:
+                baseProfile = profileDtoMapper.convertUserDto(profile);
+                break;
+
+            case DRIVER:
+                baseProfile = profileDtoMapper.convertDriverDto(profile);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + profile.getProfileType());
+        }
+
+        return baseProfile;
+
     }
 
     public List<Profile> handle() {

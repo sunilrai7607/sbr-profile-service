@@ -1,5 +1,6 @@
 package com.sbr.platform.services.service;
 
+import com.sbr.platform.services.model.entity.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.model.request.ProfileRequest;
 
@@ -13,7 +14,7 @@ public interface ProfileService {
      * @param userId
      * @return
      */
-    List<Profile> findProfileById(final String userId);
+    List<BaseProfile> findProfileById(final String userId);
 
     String createProfile(final ProfileRequest profileRequest);
 

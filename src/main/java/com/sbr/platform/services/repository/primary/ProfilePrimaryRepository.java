@@ -13,5 +13,7 @@ public interface ProfilePrimaryRepository extends MongoRepository<Profile, Strin
 
     boolean existsByUserId(final String userId);
 
+    boolean existsByDriverId(final String driverId);
+
     void deleteByUserId(final String userId);
 }

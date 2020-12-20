@@ -1,23 +1,23 @@
 version: '3'
 services:
-    profile-service:
-      build:
-        context: .
-        args:
-          version: 0.0.1
-        dockerfile: Dockerfile
-      depends_on:
-        - redis-server
-        - mongodb-server
-      ports:
-        - "8080:8080"
-      networks:
-        - spring-boot-profile-network
-      links:
-        - redis-server
-        - mongodb-server
-        - zookeeper
-        - kafka
+  profile-service:
+    build:
+      context: .
+      args:
+        version: 0.0.1
+      dockerfile: Dockerfile
+    depends_on:
+      - redis-server
+      - mongodb-server
+    ports:
+      - "8080:8080"
+    networks:
+      - spring-boot-profile-network
+    links:
+      - redis-server
+      - mongodb-server
+      - zookeeper
+      - kafka
   redis-server:
     image: redis
     command: [ "redis-server", "--protected-mode", "no" ]
