@@ -1,6 +1,6 @@
 package com.sbr.platform.services.controller;
 
-import com.sbr.platform.services.model.entity.BaseProfile;
+import com.sbr.platform.services.model.dto.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.model.request.ProfileRequest;
 import com.sbr.platform.services.service.ProfileService;
@@ -24,7 +24,7 @@ public class CustomProfileController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<List<BaseProfile>> findProfile(@PathVariable("userId") final String userId) {
+    public ResponseEntity<List<Object>> findProfile(@PathVariable("userId") final String userId) {
         return ResponseEntity.ok(profileService.findProfileById(userId));
     }
 

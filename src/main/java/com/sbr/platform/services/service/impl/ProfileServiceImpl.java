@@ -4,7 +4,8 @@ import com.sbr.platform.services.commands.DeleteProfileCommand;
 import com.sbr.platform.services.commands.ProfileAggregate;
 import com.sbr.platform.services.mappers.ProfileCreateRequestMapper;
 import com.sbr.platform.services.mappers.ProfileUpdateRequestMapper;
-import com.sbr.platform.services.model.entity.BaseProfile;
+import com.sbr.platform.services.model.dto.BaseProfile;
+import com.sbr.platform.services.model.dto.UserProfileDTO;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.model.request.ProfileRequest;
 import com.sbr.platform.services.queries.ProfileProjection;
@@ -32,8 +33,8 @@ public class ProfileServiceImpl implements ProfileService {
      * @return
      */
     @Override
-    public List<BaseProfile> findProfileById(final String userId) {
-        return Arrays.asList(profileProjection.handle(new UserByUserIdQuery(userId)));
+    public List<Object> findProfileById(final String userId) {
+        return Arrays.asList((UserProfileDTO) profileProjection.handle(new UserByUserIdQuery(userId)));
     }
 
     @Override

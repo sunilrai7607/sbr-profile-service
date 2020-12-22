@@ -1,5 +1,6 @@
 package com.sbr.platform.services.model.entity;
 
+import com.sbr.platform.services.model.dto.BaseProfile;
 import lombok.Data;
 
 import java.util.Set;

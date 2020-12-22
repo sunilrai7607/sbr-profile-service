@@ -1,7 +1,6 @@
 package com.sbr.platform.services.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.sbr.platform.services.model.entity.BaseProfile;
 import com.sbr.platform.services.model.enums.CarType;
 import lombok.Data;
 

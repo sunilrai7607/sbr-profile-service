@@ -1,7 +1,7 @@
 package com.sbr.platform.services.queries;
 
 import com.sbr.platform.services.mappers.ProfileDtoMapper;
-import com.sbr.platform.services.model.entity.BaseProfile;
+import com.sbr.platform.services.model.dto.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.repository.primary.ProfilePrimaryRepository;
 import lombok.RequiredArgsConstructor;
