@@ -8,6 +8,7 @@ import lombok.Data;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
 import java.util.Set;
 
 @Data
@@ -31,5 +32,8 @@ public class Profile extends BaseEntity {
     private String driverId;
 
     private CarType carType;
+
+    @Indexed(name = "expiredAt-profile-indexed", expireAfterSeconds = 10)
+    private Date expireAt = new Date();
 
 }

@@ -39,6 +39,7 @@ public class ProfileProjection {
     }
 
     public List<Profile> handle() {
+        log.info("Pulling from DB");
         return profilePrimaryRepository.findAll();
     }
 

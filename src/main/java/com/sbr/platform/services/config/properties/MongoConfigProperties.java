@@ -15,6 +15,7 @@ public class MongoConfigProperties {
 
     private MongoProperties primary = new MongoProperties();
     private MongoProperties secondary = new MongoProperties();
+    private String retentionTime;
 
     @PostConstruct
     public void printProperties() {

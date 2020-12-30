@@ -1,6 +1,5 @@
 package com.sbr.platform.services.controller;
 
-import com.sbr.platform.services.model.dto.BaseProfile;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.model.request.ProfileRequest;
 import com.sbr.platform.services.service.ProfileService;

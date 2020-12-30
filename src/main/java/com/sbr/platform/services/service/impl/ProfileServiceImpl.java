@@ -4,7 +4,6 @@ import com.sbr.platform.services.commands.DeleteProfileCommand;
 import com.sbr.platform.services.commands.ProfileAggregate;
 import com.sbr.platform.services.mappers.ProfileCreateRequestMapper;
 import com.sbr.platform.services.mappers.ProfileUpdateRequestMapper;
-import com.sbr.platform.services.model.dto.BaseProfile;
 import com.sbr.platform.services.model.dto.UserProfileDTO;
 import com.sbr.platform.services.model.entity.Profile;
 import com.sbr.platform.services.model.request.ProfileRequest;

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Date;
+
 @Configuration
 @Slf4j
 public class ProfileApplicationConfig implements CommandLineRunner {
@@ -37,6 +39,7 @@ public class ProfileApplicationConfig implements CommandLineRunner {
         profile.setFirstName("Sunil");
         profile.setLastName("Rai");
         profile.setProfileType(ProfileType.USER);
+        profile.setExpireAt(new Date());
         return profile;
     }
 

@@ -7,13 +7,17 @@ sbr:
       group-id: events-group
     mongodb: # MongoDB configuration
       config:
+        #        Indexed(expireAfter = "10s") String expireAfterTenSeconds;
+        #        Indexed(expireAfter = "1d") String expireAfterOneDay;
+        #        Indexed(expireAfter = "P2D") String expireAfterTwoDays;
+        retention-time: 10s
         primary:
           host: localhost
           port: 27017
           database: primary-profiles-collections
           authentication-database: admin
-          username: root
-          password: example
+          username: admin
+          password: changeit
           repositories:
             enable: true
         secondary:
@@ -21,8 +25,8 @@ sbr:
           port: 27017
           database: secondary-profiles-collections
           authentication-database: admin
-          username: root
-          password: example
+          username: admin
+          password: changeit
           repositories:
             enable: true
     rediscache: # Redis Configuration
